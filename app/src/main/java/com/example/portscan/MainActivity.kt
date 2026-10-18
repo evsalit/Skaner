@@ -151,7 +151,8 @@ fun ScanScreen() {
             label = { Text("Диапазоны (по одному на строку)") },
             placeholder = { Text("192.168.1.0/24\n10.0.0.1-10.0.0.50\n1.2.3.4") },
             modifier = Modifier.fillMaxWidth(),
-            minLines = 4,
+            minLines = 3,
+            maxLines = 6,
             enabled = !scanning
         )
 
@@ -210,7 +211,9 @@ fun ScanScreen() {
         Spacer(Modifier.height(12.dp))
 
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f),
             verticalArrangement = Arrangement.Top
         ) {
             items(live) { ip ->
